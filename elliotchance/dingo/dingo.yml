@@ -1,0 +1,10 @@
+services:
+  Config:
+    type: '*Config'
+    error: return nil
+    returns: NewConfig()
+  Logger:
+    type: '*log.Logger'
+    import:
+      - 'os'
+    returns: log.New(os.Stdout, @{Config}.Prefix, 0)
